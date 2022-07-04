@@ -1,6 +1,6 @@
 import './App.css';
 import axios from 'axios';
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 
 function App() {
   const [inp1, setInp1] = useState();
@@ -9,13 +9,16 @@ function App() {
   const [inp4, setInp4] = useState();
   const [inp5, setInp5] = useState();
   const [inp6, setInp6] = useState();
-  const [data, setData] = useState()
-  axios.get("https://jsonplaceholder.typicode.com/todos/1")
+  const [data, setData] = useState(null)
 
-    .then(res=>{
-    }, [])
-    .catch(err=>{console.log("Houston we've got a problem: " +err)});
-    
+  React.useEffect(()=>{
+    axios.get("http://127.0.0.1:8000/words").then(res=>{
+      setData(res.data)
+    }, []).catch(err=>{
+      console.log(err)
+    })
+  })
+    var word1 = "acido"
     //targetizza l'innerHTML dell'input
     function inp1Change(e){
       setInp1(e.target.value)
@@ -34,6 +37,10 @@ function App() {
     }
     function inp6Change(e){
       setInp6(e.target.value)
+    }
+    var filtred1 = word1.split("")
+    function controllaParola(){
+
     }
   return (
     <>
@@ -80,7 +87,7 @@ function App() {
           <div id='dv6-5'></div>
         </div>
         <div className="buttons">
-          <button id='btn_bello'>invia</button>
+          <button id='btn_bello' onClick={controllaParola}>invia</button>
         </div>
       </div>
       <div className='prova_bella'>
