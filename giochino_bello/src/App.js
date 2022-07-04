@@ -1,8 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
+import axios from 'axios';
 
 function App() {
-
+  axios.get("http://127.0.0.1:8000/words")
+    .then(res=>{
+      console.log(res.data)
+    })
+    .catch(err=>{console.log("Houston we got a problem: " +err)})
   return (
     <div className="App">
       <h1>Il Gioco Inizia</h1>

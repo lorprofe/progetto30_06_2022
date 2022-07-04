@@ -1,8 +1,19 @@
+from .api import api
 from fastapi import FastAPI
-
-from app.api import api
+from fastapi.responses import JSONResponse
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+
+origins = ["*"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=[""],
+    allow_headers=["*"],
+)
 
 @app.get('/words')
 def get_all_words():
