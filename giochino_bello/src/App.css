@@ -85,7 +85,7 @@ h1:hover{
     position: absolute;
     top: 80%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr ;
     left: 50%;
     transform: translateX(-50%);
     width: 40vh;
@@ -105,4 +105,10 @@ h1:hover{
 button:hover{
     color:  white;
     transition: 1.5s;
+}
+.prova_bella{
+    position: absolute;
+    color: white;
+    left: 0;
+    top: 30%;
 }
