@@ -9,19 +9,24 @@ function App() {
   const [inp4, setInp4] = useState();
   const [inp5, setInp5] = useState();
   const [inp6, setInp6] = useState();
-   const [data, setData] = useState(null);
-
-  React.useEffect(() => {
-      axios.get("http://127.0.0.1:8000/words").then(res => {
-          setData(res.data);
-          console.log(res.data);
-      }).catch(err=>{
-        console.log(err)
-      });
+  const [ListaParole, setListaParole] = useState([]);
+  // ponte API-FrontEnd per prendere dati dalle API
+  useEffect(() => {
+    async function fetchData(){
+      try{
+        // con async-await non ho più risultati come responses, ma aspetto il caricamento dei dati
+        const response = await axios.get("http://127.0.0.1:8000/words");
+        const data = await response.data;
+        const ListaParole = data.map((e) => e['word']);
+        setListaParole(ListaParole);
+      } catch(error) {
+        console.error(error.message);
+      };
+    };
+    fetchData();
   }, []);
-
-  if(!data) return null;
-    var word1 = "acido"
+  // utilizzando ListaParole[index] è possibile visualizzare le varie parole nella lista, da chiedere a Bosco come mai ad ogni esecuzione stampa 4 volte le stesse cose
+  let word1 = ListaParole[0];
     //targetizza l'innerHTML dell'input
     function inp1Change(e){
       setInp1(e.target.value)
@@ -41,7 +46,6 @@ function App() {
     function inp6Change(e){
       setInp6(e.target.value)
     }
-    var filtred1 = word1.split("")
     function controllaParola(){
 
     }
