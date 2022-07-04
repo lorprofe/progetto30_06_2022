@@ -9,15 +9,18 @@ function App() {
   const [inp4, setInp4] = useState();
   const [inp5, setInp5] = useState();
   const [inp6, setInp6] = useState();
-  const [data, setData] = useState(null)
+   const [data, setData] = useState(null);
 
-  React.useEffect(()=>{
-    axios.get("http://127.0.0.1:8000/words").then(res=>{
-      setData(res.data)
-    }, []).catch(err=>{
-      console.log(err)
-    })
-  })
+  React.useEffect(() => {
+      axios.get("http://127.0.0.1:8000/words").then(res => {
+          setData(res.data);
+          console.log(res.data);
+      }).catch(err=>{
+        console.log(err)
+      });
+  }, []);
+
+  if(!data) return null;
     var word1 = "acido"
     //targetizza l'innerHTML dell'input
     function inp1Change(e){
