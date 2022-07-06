@@ -30,7 +30,7 @@ export default function Wordle({ solution }) {
 
   return (
     <div>
-        <div>Prova ad indovinare la parola misteriosa, hai 6 tentativi!</div><br></br>
+        <div id="roba_bella">Prova ad indovinare la parola misteriosa, hai 6 tentativi!</div><br></br>
         <Grid currentGuess={currentGuess} guesses={guesses} turn={turn} />
         {showModal && <Modal isCorrect={isCorrect} turn={turn} solution={solution} />}
     </div>
