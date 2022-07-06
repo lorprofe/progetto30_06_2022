@@ -1,26 +1,8 @@
 [
-    {
-        "id": 1, 
-        "word": "acido"
-    },
-    {
-        "id": 2, 
-        "word": "bosco"
-    },    
-    {
-        "id": 3, 
-        "word": "digos"
-    },    
-    {
-        "id": 4, 
-        "word": "sport"
-    },    
-    {
-        "id": 5, 
-        "word": "latte"
-    },    
-    {
-        "id": 6, 
-        "word": "zuppa"
-    }
+        {"word": "acido", "id": 1},
+        {"word": "bosco", "id": 2},
+        {"word": "digos", "id": 3},
+        {"word": "latte", "id": 4},
+        {"word": "sport", "id": 5},
+        {"word": "zuppa", "id": 6}
 ]
