@@ -14,6 +14,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get('/words')
+@app.get('/solutions')
 def get_all_words():
     return api.get_all_words()
